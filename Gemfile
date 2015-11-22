@@ -4,14 +4,30 @@ source 'https://rubygems.org'
 ruby '2.2.1'
 gem 'rails', '4.2.3'                    # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 
-
-#database
+#Database
 gem 'pg'  # Use sqlite3 as the database for Active Record
 
-
-
 # Services
-gem 'haml'
+
+# Engines
+
+# Layout
+# Use Haml format templates
+gem "haml-rails"
+
+# Security
+gem "devise" # For user registration
+gem 'bcrypt-ruby'
+
+# Tools
+
+# Images
+
+# Payment
+gem 'stripe'
+
+# For file uploads
+gem "carrierwave"
 #
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'
