@@ -120,6 +120,7 @@ GEM
       safe_yaml (~> 1.0.0)
     database_cleaner (1.5.1)
     debug_inspector (0.0.2)
+    decent_exposure (2.3.2)
     devise (3.5.2)
       bcrypt (~> 3.0)
       orm_adapter (~> 0.1)
@@ -517,6 +518,9 @@ GEM
     shellany (0.0.1)
     shoulda-matchers (3.0.1)
       activesupport (>= 4.0.0)
+    simple_form (3.2.0)
+      actionpack (~> 4.0)
+      activemodel (~> 4.0)
     simplecov (0.10.0)
       docile (~> 1.1.0)
       json (~> 1.8)
@@ -611,6 +615,7 @@ DEPENDENCIES
   carrierwave_direct
   coffee-rails (~> 4.1.0)
   database_cleaner
+  decent_exposure
   devise
   dotenv-rails
   factory_girl_rails
@@ -644,6 +649,7 @@ DEPENDENCIES
   sdoc (~> 0.4.0)
   selenium-webdriver
   shoulda-matchers
+  simple_form
   simplecov
   spring
   spring-commands-rspec

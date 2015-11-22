@@ -1,0 +1,22 @@
+- content_for :meta_description, 'This is the meta_description'
+- content_for :meta_keywords, 'This is the meta_keywords'
+- content_for :breadcrumb do
+  %div
+    %ul.breadcrumb
+      %li
+        = link_to managers_root_path do 
+          %i.glyphicon.glyphicon-chevron-right
+          %span Dashboard
+      %li
+        = link_to "Edit Manager #{manager.name}", '#'
+.row
+  .box.col-md-12
+    .box-inner
+      .box-header.well{"data-original-title" => ""}
+        %h2
+          %i.glyphicon.glyphicon-edit
+          Edit Manager #{manager.name}
+      .box-content
+        .control-group
+          = render 'form'
+

@@ -1,0 +1,362 @@
+- content_for :meta_description, 'This is the meta_description'
+- content_for :meta_keywords, 'This is the meta_keywords'
+- content_for :breadcrumb do
+  %div
+    %ul.breadcrumb
+      %li
+        = link_to managers_root_path, class: 'ajax-link' do 
+          %i.glyphicon.glyphicon-chevron-right
+          %span Dashboard
+      -#%li
+        %a{:href => "#"} Dashboard
+.row
+  .col-md-3.col-sm-3.col-xs-6
+    %a.well.top-block{"data-toggle" => "tooltip", :href => "#", :title => "6 new members."}
+      %i.glyphicon.glyphicon-user.blue
+      %div Total Members
+      %div 507
+      %span.notification 6
+  .col-md-3.col-sm-3.col-xs-6
+    %a.well.top-block{"data-toggle" => "tooltip", :href => "#", :title => "4 new pro members."}
+      %i.glyphicon.glyphicon-star.green
+      %div Pro Members
+      %div 228
+      %span.notification.green 4
+  .col-md-3.col-sm-3.col-xs-6
+    %a.well.top-block{"data-toggle" => "tooltip", :href => "#", :title => "$34 new sales."}
+      %i.glyphicon.glyphicon-shopping-cart.yellow
+      %div Sales
+      %div $13320
+      %span.notification.yellow $34
+  .col-md-3.col-sm-3.col-xs-6
+    %a.well.top-block{"data-toggle" => "tooltip", :href => "#", :title => "12 new messages."}
+      %i.glyphicon.glyphicon-envelope.red
+      %div Messages
+      %div 25
+      %span.notification.red 12
+.row
+  .box.col-md-12
+    .box-inner
+      .box-header.well
+        %h2
+          %i.glyphicon.glyphicon-info-sign
+          Introduction
+        .box-icon
+          %a.btn.btn-setting.btn-round.btn-default{:href => "#"}
+            %i.glyphicon.glyphicon-cog
+          %a.btn.btn-minimize.btn-round.btn-default{:href => "#"}
+            %i.glyphicon.glyphicon-chevron-up
+          %a.btn.btn-close.btn-round.btn-default{:href => "#"}
+            %i.glyphicon.glyphicon-remove
+      .box-content.row
+        .col-lg-12.col-md-12
+          %h1
+            = t(:company_name)
+            %br/
+            %small free, premium quality, responsive, multiple skin admin template.
+          %p
+            It's a live demo of the template. I have created Charisma to ease the repeat work I have to do on my
+            projects. Now I re-use Charisma as a base for my admin panel work and I am sharing it with you
+            \:)
+          %p
+            %b
+              All pages in the menu are functional, take a look at all, please share this with your
+              followers.
+          %p.center-block.download-buttons
+            %a.btn.btn-primary.btn-lg{:href => "http://usman.it/free-responsive-admin-template/"}
+              %i.glyphicon.glyphicon-chevron-left.glyphicon-white
+              Back to article
+            %a.btn.btn-default.btn-lg{:href => "http://usman.it/free-responsive-admin-template/"}
+              %i.glyphicon.glyphicon-download-alt
+              Download Page
+.row
+  .box.col-md-4
+    .box-inner.homepage-box
+      .box-header.well
+        %h2
+          %i.glyphicon.glyphicon-th
+          Tabs
+        .box-icon
+          %a.btn.btn-setting.btn-round.btn-default{:href => "#"}
+            %i.glyphicon.glyphicon-cog
+          %a.btn.btn-minimize.btn-round.btn-default{:href => "#"}
+            %i.glyphicon.glyphicon-chevron-up
+          %a.btn.btn-close.btn-round.btn-default{:href => "#"}
+            %i.glyphicon.glyphicon-remove
+      .box-content
+        %ul#myTab.nav.nav-tabs
+          %li.active
+            %a{:href => "#info"} Info
+          %li
+            %a{:href => "#custom"} Custom
+          %li
+            %a{:href => "#messages"} Messages
+        #myTabContent.tab-content
+          #info.tab-pane.active
+            %h3
+              Charisma
+              %small a full featured template
+            %p
+              It's a full featured, responsive template for your admin panel. It's optimized for tablets
+              and mobile phones.
+            %p Check how it looks on different devices:
+            %a{:href => "http://www.responsinator.com/?url=usman.it%2Fthemes%2Fcharisma", :target => "_blank"}
+              %strong Preview on iPhone size.
+            %br/
+            %a{:href => "http://www.responsinator.com/?url=usman.it%2Fthemes%2Fcharisma", :target => "_blank"}
+              %strong Preview on iPad size.
+          #custom.tab-pane
+            %h3
+              Custom
+              %small small text
+            %p Sample paragraph.
+            %p Your custom text.
+          #messages.tab-pane
+            %h3
+              Messages
+              %small small text
+            %p Sample paragraph.
+            %p Your custom text.
+  / /span
+  .box.col-md-4
+    .box-inner
+      .box-header.well{"data-original-title" => ""}
+        %h2
+          %i.glyphicon.glyphicon-user
+          Member Activity
+        .box-icon
+          %a.btn.btn-minimize.btn-round.btn-default{:href => "#"}
+            %i.glyphicon.glyphicon-chevron-up
+          %a.btn.btn-close.btn-round.btn-default{:href => "#"}
+            %i.glyphicon.glyphicon-remove
+      .box-content
+        .box-content
+          %ul.dashboard-list
+            %li
+              %a{:href => "#"}
+                %img.dashboard-avatar{:alt => "Usman", :src => "http://www.gravatar.com/avatar/f0ea51fa1e4fae92608d8affee12f67b.png?s=50"}/
+              %strong Name:
+              %a{:href => "#"}
+                Usman
+              %br/
+              %strong Since:
+              17/05/2014
+              %br/
+              %strong Status:
+              %span.label-success.label.label-default Approved
+            %li
+              %a{:href => "#"}
+                %img.dashboard-avatar{:alt => "Sheikh Heera", :src => "http://www.gravatar.com/avatar/3232415a0380253cfffe19163d04acab.png?s=50"}/
+              %strong Name:
+              %a{:href => "#"}
+                Sheikh Heera
+              %br/
+              %strong Since:
+              17/05/2014
+              %br/
+              %strong Status:
+              %span.label-warning.label.label-default Pending
+            %li
+              %a{:href => "#"}
+                %img.dashboard-avatar{:alt => "Abdullah", :src => "http://www.gravatar.com/avatar/46056f772bde7c536e2086004e300a04.png?s=50"}/
+              %strong Name:
+              %a{:href => "#"}
+                Abdullah
+              %br/
+              %strong Since:
+              25/05/2014
+              %br/
+              %strong Status:
+              %span.label-default.label.label-danger Banned
+            %li
+              %a{:href => "#"}
+                %img.dashboard-avatar{:alt => "Sana Amrin", :src => "http://www.gravatar.com/avatar/hash"}/
+              %strong Name:
+              %a{:href => "#"} Sana Amrin
+              %br/
+              %strong Since:
+              17/05/2014
+              %br/
+              %strong Status:
+              %span.label.label-info Updates
+  / /span
+  .box.col-md-4
+    .box-inner.homepage-box
+      .box-header.well{"data-original-title" => ""}
+        %h2
+          %i.glyphicon.glyphicon-list-alt
+          Keep in touch
+        .box-icon
+          %a.btn.btn-minimize.btn-round.btn-default{:href => "#"}
+            %i.glyphicon.glyphicon-chevron-up
+          %a.btn.btn-close.btn-round.btn-default{:href => "#"}
+            %i.glyphicon.glyphicon-remove
+      .box-content
+        %h3 Stay updated with my projects and blog posts
+        / Begin MailChimp Signup Form
+        .mc_embed_signup
+          %form#mc-embedded-subscribe-form.validate{:action => "//halalit.us3.list-manage.com/subscribe/post?u=444b176aa3c39f656c66381f6&id=eeb0c04e84", :method => "post", :name => "mc-embedded-subscribe-form", :novalidate => "", :target => "_blank"}
+            %div
+              %label Please enter your email
+              %input.email{:name => "EMAIL", :placeholder => "Email address", :required => "", :type => "email", :value => ""}/
+              .power_field
+                %input{:name => "b_444b176aa3c39f656c66381f6_eeb0c04e84", :tabindex => "-1", :type => "text", :value => ""}/
+              .clear
+                %input.button{:name => "subscribe", :type => "submit", :value => "Subscribe"}/
+        / End mc_embed_signup
+        %br/
+        %p
+          You may like my other open source work, check my profile on
+          = succeed "." do
+            %a{:href => "http://github.com/usmanhalalit", :target => "_blank"} GitHub
+  / /span
+/ /row
+.row
+  .box.col-md-4
+    .box-inner
+      .box-header.well{"data-original-title" => ""}
+        %h2
+          %i.glyphicon.glyphicon-list
+          Buttons
+        .box-icon
+          %a.btn.btn-setting.btn-round.btn-default{:href => "#"}
+            %i.glyphicon.glyphicon-cog
+          %a.btn.btn-minimize.btn-round.btn-default{:href => "#"}
+            %i.glyphicon.glyphicon-chevron-up
+          %a.btn.btn-close.btn-round.btn-default{:href => "#"}
+            %i.glyphicon.glyphicon-remove
+      .box-content.buttons
+        %p.btn-group
+          %button.btn.btn-default Left
+          %button.btn.btn-default Middle
+          %button.btn.btn-default Right
+        %p
+          %button.btn.btn-default.btn-sm
+            %i.glyphicon.glyphicon-star
+            Icon button
+          %button.btn.btn-primary.btn-sm Small button
+          %button.btn.btn-danger.btn-sm Small button
+        %p
+          %button.btn.btn-warning.btn-sm Small button
+          %button.btn.btn-success.btn-sm Small button
+          %button.btn.btn-info.btn-sm Small button
+        %p
+          %button.btn.btn-inverse.btn-default.btn-sm Small button
+          %button.btn.btn-primary.btn-round.btn-lg Round button
+          %button.btn.btn-round.btn-default.btn-lg
+            %i.glyphicon.glyphicon-ok
+          %button.btn.btn-primary
+            %i.glyphicon.glyphicon-edit.glyphicon-white
+        %p
+          %button.btn.btn-default.btn-xs Mini button
+          %button.btn.btn-primary.btn-xs Mini button
+          %button.btn.btn-danger.btn-xs Mini button
+          %button.btn.btn-warning.btn-xs Mini button
+        %p
+          %button.btn.btn-info.btn-xs Mini button
+          %button.btn.btn-success.btn-xs Mini button
+          %button.btn.btn-inverse.btn-default.btn-xs Mini button
+  / /span
+  .box.col-md-4
+    .box-inner
+      .box-header.well{"data-original-title" => ""}
+        %h2
+          %i.glyphicon.glyphicon-list
+          Buttons
+        .box-icon
+          %a.btn.btn-setting.btn-round.btn-default{:href => "#"}
+            %i.glyphicon.glyphicon-cog
+          %a.btn.btn-minimize.btn-round.btn-default{:href => "#"}
+            %i.glyphicon.glyphicon-chevron-up
+          %a.btn.btn-close.btn-round.btn-default{:href => "#"}
+            %i.glyphicon.glyphicon-remove
+      .box-content.buttons
+        %p
+          %button.btn.btn-default.btn-lg Large button
+          %button.btn.btn-primary.btn-lg Large button
+        %p
+          %button.btn.btn-danger.btn-lg Large button
+          %button.btn.btn-warning.btn-lg Large button
+        %p
+          %button.btn.btn-success.btn-lg Large button
+          %button.btn.btn-info.btn-lg Large button
+        %p
+          %button.btn.btn-inverse.btn-default.btn-lg Large button
+        .btn-group
+          %button.btn.btn-default.btn-lg Large Dropdown
+          %button.btn.dropdown-toggle.btn-default.btn-lg{"data-toggle" => "dropdown"}
+            %span.caret
+          %ul.dropdown-menu
+            %li
+              %a{:href => "#"}
+                %i.glyphicon.glyphicon-star
+                Action
+            %li
+              %a{:href => "#"}
+                %i.glyphicon.glyphicon-tag
+                Another action
+            %li
+              %a{:href => "#"}
+                %i.glyphicon.glyphicon-download-alt
+                Something else here
+            %li.divider
+            %li
+              %a{:href => "#"}
+                %i.glyphicon.glyphicon-tint
+                Separated link
+  / /span
+  .box.col-md-4
+    .box-inner
+      .box-header.well{"data-original-title" => ""}
+        %h2
+          %i.glyphicon.glyphicon-list
+          Weekly Stat
+        .box-icon
+          %a.btn.btn-setting.btn-round.btn-default{:href => "#"}
+            %i.glyphicon.glyphicon-cog
+          %a.btn.btn-minimize.btn-round.btn-default{:href => "#"}
+            %i.glyphicon.glyphicon-chevron-up
+          %a.btn.btn-close.btn-round.btn-default{:href => "#"}
+            %i.glyphicon.glyphicon-remove
+      .box-content
+        %ul.dashboard-list
+          %li
+            %a{:href => "#"}
+              %i.glyphicon.glyphicon-arrow-up
+              %span.green 92
+              New Comments
+          %li
+            %a{:href => "#"}
+              %i.glyphicon.glyphicon-arrow-down
+              %span.red 15
+              New Registrations
+          %li
+            %a{:href => "#"}
+              %i.glyphicon.glyphicon-minus
+              %span.blue 36
+              New Articles
+          %li
+            %a{:href => "#"}
+              %i.glyphicon.glyphicon-comment
+              %span.yellow 45
+              User reviews
+          %li
+            %a{:href => "#"}
+              %i.glyphicon.glyphicon-arrow-up
+              %span.green 112
+              New Comments
+          %li
+            %a{:href => "#"}
+              %i.glyphicon.glyphicon-arrow-down
+              %span.red 31
+              New Registrations
+          %li
+            %a{:href => "#"}
+              %i.glyphicon.glyphicon-minus
+              %span.blue 93
+              New Articles
+          %li
+            %a{:href => "#"}
+              %i.glyphicon.glyphicon-comment
+              %span.yellow 254
+              User reviews

@@ -14,12 +14,14 @@ gem 'pg'  # Use sqlite3 as the database for Active Record
 # Layout
 # Use Haml format templates
 gem "haml-rails"
+gem 'simple_form'
 
 # Security
 gem "devise" # For user registration
 gem 'bcrypt-ruby'
 
 # Tools
+gem 'decent_exposure'     # A helper for creating declarative interfaces in controllers
 
 # Images
 

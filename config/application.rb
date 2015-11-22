@@ -8,6 +8,11 @@ Bundler.require(*Rails.groups)
 
 module Propertybrother
   class Application < Rails::Application
+    config.generators do |g|
+      g.template_engine :haml
+      g.test_framework      :rspec, fixture: true
+      g.fixture_replacement :fabrication, dir: "spec/fabricators"
+    end
     # Settings in config/environments/* take precedence over those specified here.
     # Application configuration should go into files in config/initializers
     # -- all .rb files in that directory are automatically loaded.
@@ -19,8 +24,33 @@ module Propertybrother
     # The default locale is :en and all translations from config/locales/*.rb,yml are auto loaded.
     # config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]
     # config.i18n.default_locale = :de
+    config.assets.paths << Rails.root.join('app', 'assets', 'fonts')
+    config.assets.precompile += ['public/*', 'managers/*', 'admins/*']
+    config.assets.precompile += %w( .svg .eot .woff .ttf )
+    config.autoload_paths += %W(#{config.root}/lib)
 
-    # Do not swallow errors in after_commit/after_rollback callbacks.
+    I18n.enforce_available_locales = false
+
+    config.before_initialize do
+      dev = File.join(Rails.root, 'config', 'config.yml')
+      YAML.load(File.open(dev)).each do |key,value|
+      ENV[key.to_s] = value
+      end if File.exists?(dev)
+    end
+
+    config.to_prepare do
+      #Devise::Mailer.layout "email" # email.haml or email.erb
+    end
+    def load_console
+      super
+      if File.exists?(project_specific_irbrc = File.join(Rails.root, ".irbrc"))
+        load(project_specific_irbrc)
+      end
+      if File.exists?(project_specific_awesome_print = File.join(Rails.root, ".aprrc"))
+        load(project_specific_awesome_print)
+      end
+    end
+
     config.active_record.raise_in_transactional_callbacks = true
   end
 end

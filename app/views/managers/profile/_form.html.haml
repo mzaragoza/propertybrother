@@ -1,0 +1,28 @@
+= simple_form_for([:managers, manager], html: {class: 'form-horizontal clearfix', novalidate: true}) do |f|
+  .control-group
+    %label.control-label{:for => "email"} Email
+    .controls
+      = manager.email
+  .control-group
+    %label.control-label{:for => "password"} Password
+    .controls
+      = f.input :password, label: false
+  .control-group
+    %label.control-label{:for => "password_confirmation"} Password Confirmation
+    .controls
+      = f.input :password_confirmation, label: false
+  .control-group
+    %label.control-label{:for => "first_name"} First Name
+    .controls
+      = f.input :first_name, label: false
+  .control-group
+    %label.control-label{:for => "last_name"} Last Name
+    .controls
+      = f.input :last_name, label: false
+  .control-group
+    %label.control-label{:for => "active"} Active
+    .controls
+      = f.input :active, label: false
+  .control-group
+    .controls
+      = f.button :submit, class: 'btn btn-primary btn-large pull-right', disable_with: 'Creating...'

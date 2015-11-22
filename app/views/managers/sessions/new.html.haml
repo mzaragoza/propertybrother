@@ -1,0 +1,19 @@
+.well.col-md-5.center.login-box
+  .alert.alert-info
+    Please login with your Username and Password.
+  = simple_form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f|
+    %fieldset
+      .input-group.input-group-lg
+        %span.input-group-addon
+          %i.glyphicon.glyphicon-user.red
+        = f.input :email, label: false, input_html: { class: 'form-control input-lg', placeholder: "Enter email", type: "email" }
+      .clearfix
+      %br/
+      .input-group.input-group-lg
+        %span.input-group-addon
+          %i.glyphicon.glyphicon-lock.red
+        = f.input :password, label: false, input_html: { class: 'form-control input-lg', placeholder: "Password", type: "password" }
+      .clearfix
+      %p.center.col-md-5
+        = f.button :submit, "Login", :class => 'btn btn-primary btn-block'
+
