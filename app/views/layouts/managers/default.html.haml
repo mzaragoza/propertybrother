@@ -54,20 +54,24 @@
                     %i.glyphicon.glyphicon-chevron-right
                     %span Dashboard
                 %li
-                  = link_to '#', class: 'ajax-link' do 
-                    %i.glyphicon.glyphicon-chevron-right
+                  = link_to managers_accounts_path, class: 'ajax-link' do 
+                    %i.glyphicon.glyphicon-home
                     %span Accounts
                 %li
-                  = link_to '#', class: 'ajax-link' do 
-                    %i.glyphicon.glyphicon-chevron-right
-                    %span Users
-                %li
                   = link_to managers_managers_path, class: 'ajax-link' do 
-                    %i.glyphicon.glyphicon-chevron-right
-                    %span Managers
+                    %i.glyphicon.glyphicon-user
+                    %span Staff
                 %li
                   = link_to '#', class: 'ajax-link' do 
-                    %i.glyphicon.glyphicon-chevron-right
+                    %i.glyphicon.glyphicon-list-alt
+                    %span Documents
+                %li
+                  = link_to '#', class: 'ajax-link' do 
+                    %i.glyphicon.glyphicon-list-alt
+                    %span Reports
+                %li
+                  = link_to '#', class: 'ajax-link' do 
+                    %i.glyphicon.glyphicon-cog
                     %span Settings
         %noscript
           .alert.alert-block.col-md-12

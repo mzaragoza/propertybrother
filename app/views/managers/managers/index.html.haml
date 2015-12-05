@@ -36,7 +36,6 @@
               %th Id #
               %th Email
               %th Name
-              %th Photo
               %th Status
               %th  
           %tbody
@@ -45,8 +44,6 @@
                 %td= manager.id
                 %td= manager.email
                 %td= manager.name
-                %td
-                  = image_tag manager.photo if manager.photo
                 %td
                   - if manager.active?
                     %span.label.label-success Active

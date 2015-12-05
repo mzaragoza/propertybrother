@@ -11,17 +11,38 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151122204648) do
+ActiveRecord::Schema.define(version: 20151205024321) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "accounts", force: :cascade do |t|
+    t.string   "subdomain",             default: "", null: false
+    t.string   "name",                  default: "", null: false
+    t.string   "address",               default: "", null: false
+    t.string   "city",                  default: "", null: false
+    t.string   "state",                 default: "", null: false
+    t.string   "zip",                   default: "", null: false
+    t.integer  "number_of_appartments"
+    t.decimal  "monthly_fee"
+    t.datetime "created_at",                         null: false
+    t.datetime "updated_at",                         null: false
+  end
+
+  add_index "accounts", ["subdomain"], name: "index_accounts_on_subdomain", unique: true, using: :btree
+
   create_table "managers", force: :cascade do |t|
+    t.string   "username",               default: "",   null: false
     t.string   "email",                  default: "",   null: false
     t.string   "encrypted_password",     default: "",   null: false
     t.string   "first_name",             default: "",   null: false
     t.string   "last_name",              default: "",   null: false
-    t.string   "photo"
+    t.string   "phone"
+    t.string   "extension"
+    t.string   "address"
+    t.string   "city"
+    t.string   "state"
+    t.string   "zip"
     t.boolean  "active",                 default: true, null: false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"

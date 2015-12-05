@@ -49,6 +49,13 @@ class Managers::ManagersController < ManagerController
       :first_name,
       :last_name,
       :active,
+      :username,
+      :phone,
+      :extension,
+      :address,
+      :city,
+      :state,
+      :zip,
     )
   end
 end

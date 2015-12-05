@@ -15,7 +15,6 @@ class Managers::ProfileController < ManagerController
   def check_password_submitted
     if params[:manager][:password].blank?
       params[:manager].delete("password")
-      params[:manager].delete("password_confirmation")
       manager.updating_password = false
     else
       manager.updating_password = true

@@ -1,0 +1,77 @@
+- content_for :meta_description, 'This is the meta_description'
+- content_for :meta_keywords, 'This is the meta_keywords'
+- content_for :breadcrumb do
+  %div
+    %ul.breadcrumb
+      %li
+        = link_to managers_root_path do
+          %i.glyphicon.glyphicon-chevron-right
+          %span Dashboard
+      %li
+        = link_to 'Accounts', '#'
+.row
+  .box.col-md-12
+    %p
+      = link_to new_managers_account_path, class: 'btn btn-info' do
+        %i.glyphicon.glyphicon-edit.icon-white
+        New Account
+    %p
+      %a.btn.btn-setting.btn-success{:href => "#"}
+        %i.glyphicon.glyphicon-zoom-in
+        Add Filter
+      %a.btn.btn-setting.btn-success{:href => "#"}
+        %i.glyphicon.glyphicon-minus-sign
+        Clear Filters
+.row
+  .box.col-md-12
+    .box-inner
+      .box-header.well{"data-original-title" => ""}
+        %h2
+          %i.glyphicon.glyphicon-star-empty
+          Accounts
+      .box-content
+        %table.table.table-striped.table-bordered.bootstrap-datatable.datatable
+          %thead
+            %tr
+              %th Name
+              %th Address
+              %th Number Board Members
+              %th Number of Apt
+              %th Account Manager
+              %th Monthy Fees
+              %th  
+          %tbody
+            %tr
+              %td Applewood II
+              %td
+                1581 NW Carambola Cir S
+                = succeed "Coconut" do
+                  %br/
+              %td 7
+              %td 218
+              %td Yaco Zaragoza
+              %td $2,180
+              %td{:align => "right", :nowrap => "nowrap"}
+                %a.btn.btn-info{:href => "account-edit.php"}
+                  %i.glyphicon.glyphicon-edit.icon-white
+                  Edit
+                %a.btn.btn-danger{:href => "account-delete.php"}
+                  %i.glyphicon.glyphicon-trash.icon-white
+                  Delete
+            %tr
+              %td Karanda VII
+              %td
+                7229 NW Carambola Cir S
+                = succeed "Coconut" do
+                  %br/
+              %td 5
+              %td 189
+              %td Moises Zaragoza
+              %td $1,890
+              %td{:align => "right", :nowrap => "nowrap"}
+                %a.btn.btn-info{:href => "account-edit.php"}
+                  %i.glyphicon.glyphicon-edit.icon-white
+                  Edit
+                %a.btn.btn-danger{:href => "account-delete.php"}
+                  %i.glyphicon.glyphicon-trash.icon-white
+                  Delete

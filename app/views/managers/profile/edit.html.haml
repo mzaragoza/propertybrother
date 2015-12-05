@@ -9,13 +9,4 @@
           %span Dashboard
       %li
         = link_to "Profile for #{current_manager.name}", '#'
-.row
-  .box.col-md-12
-    .box-inner
-      .box-header.well{"data-original-title" => ""}
-        %h2
-          %i.glyphicon.glyphicon-edit
-          Profile for #{current_manager.name}
-      .box-content
-        .control-group
-          = render 'form'
+= render 'form'

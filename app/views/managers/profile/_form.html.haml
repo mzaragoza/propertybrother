@@ -1,4 +1,4 @@
-= simple_form_for([:managers, manager], html: {class: 'form-horizontal clearfix', novalidate: true}) do |f|
+-#= simple_form_for([:managers, manager], html: {class: 'form-horizontal clearfix', novalidate: true}) do |f|
   .control-group
     %label.control-label{:for => "email"} Email
     .controls
@@ -26,3 +26,104 @@
   .control-group
     .controls
       = f.button :submit, class: 'btn btn-primary btn-large pull-right', disable_with: 'Creating...'
+
+.row
+  .box.col-md-9
+  .box.col-md-3
+= simple_form_for([:managers, manager], html: {class: 'form-horizontal clearfix form-control', novalidate: true}) do |f|
+  .row
+    .box.col-md-8
+      .box-inner
+        .box-header.well{"data-original-title" => ""}
+          %h2
+            %i.glyphicon.glyphicon-star-empty
+            My Profile
+          .box-icon
+            %a.btn.btn-minimize.btn-round.btn-default{:href => "#"}
+              %i.glyphicon.glyphicon-chevron-up
+        .box-content
+          %table.table.table-striped.table-bordered
+            %tr
+              %td
+                %strong First Name
+              %td
+                = f.input :first_name, label: false, input_html: { class: 'form-control' }
+              %td
+                %strong Last Name
+              %td
+                = f.input :last_name, label: false, input_html: { class: 'form-control' }
+            %tr
+              %td
+                %strong Email
+              %td{:colspan => "3"}
+                = f.input :email, label: false, input_html: { class: 'form-control' }
+            %tr
+              %td
+                %strong Username
+              %td
+                = f.input :username, label: false, input_html: { class: 'form-control' }
+              %td
+                %strong Password
+              %td
+                = f.input :password, label: false, input_html: { class: 'form-control' }
+                %small (Leave blank if you don't want to change it)
+            %tr
+              %td
+                %strong Phone
+              %td
+                = f.input :phone, label: false, input_html: { class: 'form-control' }
+              %td
+                %strong Ext
+              %td
+                = f.input :extension, label: false, input_html: { class: 'form-control' }
+            %tr
+              %td
+                %strong Address
+              %td{:colspan => "3"}
+                = f.input :address, label: false, input_html: { class: 'form-control' }
+            %tr
+              %td
+                %strong City
+              %td
+                = f.input :city, label: false, input_html: { class: 'form-control' }
+              %td
+                %strong State
+              %td
+                = f.input :state, label: false, input_html: { class: 'form-control' }
+                %select.form-control{:name => "state_name"}
+                  %option{:value => ""} Select One
+                  %option{:value => "FL"} Florida
+            %tr
+              %td
+                %strong Zip Code
+              %td
+                = f.input :zip, label: false, input_html: { class: 'form-control' }
+              %td  
+              %td  
+    .box.col-md-4
+      .box-inner
+        .box-header.well{"data-original-title" => ""}
+          %h2
+            %i.glyphicon.glyphicon-star-empty
+            Access To
+          .box-icon
+            %a.btn.btn-minimize.btn-round.btn-default{:href => "#"}
+              %i.glyphicon.glyphicon-chevron-up
+        .box-content
+          %table.table.table-striped.table-bordered
+            %thead
+              %th Code
+              %th Name
+              %th Number of Apt
+            %tr
+              %td 0001
+              %td Applewood II
+              %td 218
+            %tr
+              %td 0002
+              %td Karanda VII
+              %td 178
+  .row
+    .box.col-md-12
+      %input.btn.btn-info{:name => "Submit", :type => "submit", :value => "Save Changes"}/
+

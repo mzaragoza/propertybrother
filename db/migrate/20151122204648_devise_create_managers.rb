@@ -2,11 +2,17 @@ class DeviseCreateManagers < ActiveRecord::Migration
   def change
     create_table(:managers) do |t|
       ## Database authenticatable
+      t.string :username,              null: false, default: ""
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
       t.string :first_name,              null: false, default: ""
       t.string :last_name,              null: false, default: ""
-      t.string :photo
+      t.string :phone
+      t.string :extension
+      t.string :address
+      t.string :city
+      t.string :state
+      t.string :zip
       t.boolean :active,              null: false, default: true
 
       ## Recoverable
