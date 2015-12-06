@@ -9,13 +9,60 @@
           %span Dashboard
       -#%li
         %a{:href => "#"} Dashboard
+
 .row
   .box.col-md-12
 .row
-  .box.col-md-12
+  .col-md-3.col-sm-3.col-xs-6
+    %a.well.top-block{"data-toggle" => "tooltip", :href => "#", :title => "Budget"}
+      %i.glyphicon.glyphicon-user.green
+      %div Budget
+      %div= number_to_currency(rand(100000...100000000))
+  .col-md-3.col-sm-3.col-xs-6
+    %a.well.top-block{"data-toggle" => "tooltip", :href => "#", :title => "6 new Tickets."}
+      %i.glyphicon.glyphicon-user.red
+      %div Resent Tickets
+      %div= rand(100...1000)
+  .col-md-3.col-sm-3.col-xs-6
+    %a.well.top-block{"data-toggle" => "tooltip", :href => "#", :title => "3 new Applications."}
+      %i.glyphicon.glyphicon-user.blue
+      %div Applications
+      %div= rand(100...1000)
+  .col-md-3.col-sm-3.col-xs-6
+    %a.well.top-block{"data-toggle" => "tooltip", :href => "#", :title => "2 Delinquent Accounts"}
+      %i.glyphicon.glyphicon-user.red
+      %div Delinquent Accounts
+      %div= rand(100...1000)
+.row
+  .box.col-md-6
     .box-inner
       .box-header.well{"data-original-title" => ""}
         %h2
           %i.glyphicon.glyphicon-star-empty
-          Blank
+          Owner Demographics
       .box-content
+        = high_chart("chart_owner_demographics", owner_demographics)
+  .box.col-md-6
+    .box-inner
+      .box-header.well{"data-original-title" => ""}
+        %h2
+          %i.glyphicon.glyphicon-star-empty
+          Applications
+      .box-content
+        = high_chart("chart_applications", monthly_applications)
+  .box.col-md-6
+    .box-inner
+      .box-header.well{"data-original-title" => ""}
+        %h2
+          %i.glyphicon.glyphicon-star-empty
+          Total Expenses
+      .box-content
+        = high_chart("chart_expenses", monthly_expenses)
+  .box.col-md-6
+    .box-inner
+      .box-header.well{"data-original-title" => ""}
+        %h2
+          %i.glyphicon.glyphicon-star-empty
+          Total Revenue
+      .box-content
+        = high_chart("chart_revenue", owner_demographics)

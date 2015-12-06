@@ -22,6 +22,7 @@ gem 'paper_trail', '~> 4.0.0'                          # Track changes to your m
 
 # Tools
 gem 'decent_exposure'                                  # A helper for creating declarative interfaces in controllers
+gem 'lazy_high_charts'                                 # Charts
 
 # Images
 

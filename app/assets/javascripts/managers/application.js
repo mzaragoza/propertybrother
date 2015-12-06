@@ -16,5 +16,6 @@
 //= require js/jquery.uploadify-3.1.min
 //= require js/jquery.history
 //= require js/charisma
-
-
+//= require highcharts/highcharts
+//= require highcharts/highcharts-more
+//= require highcharts/highstock
