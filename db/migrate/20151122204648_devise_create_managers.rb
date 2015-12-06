@@ -7,12 +7,15 @@ class DeviseCreateManagers < ActiveRecord::Migration
       t.string :encrypted_password, null: false, default: ""
       t.string :first_name,              null: false, default: ""
       t.string :last_name,              null: false, default: ""
-      t.string :phone
+      t.string :home_phone
+      t.string :cell_phone
+      t.string :office_phone
       t.string :extension
       t.string :address
       t.string :city
       t.string :state
       t.string :zip
+      t.string :title
       t.boolean :active,              null: false, default: true
 
       ## Recoverable

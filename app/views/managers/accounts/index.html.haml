@@ -33,6 +33,7 @@
         %table.table.table-striped.table-bordered.bootstrap-datatable.datatable
           %thead
             %tr
+              %th Subdomain
               %th Name
               %th Address
               %th Number Board Members
@@ -41,37 +42,19 @@
               %th Monthy Fees
               %th  
           %tbody
-            %tr
-              %td Applewood II
-              %td
-                1581 NW Carambola Cir S
-                = succeed "Coconut" do
-                  %br/
-              %td 7
-              %td 218
-              %td Yaco Zaragoza
-              %td $2,180
-              %td{:align => "right", :nowrap => "nowrap"}
-                %a.btn.btn-info{:href => "account-edit.php"}
-                  %i.glyphicon.glyphicon-edit.icon-white
-                  Edit
-                %a.btn.btn-danger{:href => "account-delete.php"}
-                  %i.glyphicon.glyphicon-trash.icon-white
-                  Delete
-            %tr
-              %td Karanda VII
-              %td
-                7229 NW Carambola Cir S
-                = succeed "Coconut" do
-                  %br/
-              %td 5
-              %td 189
-              %td Moises Zaragoza
-              %td $1,890
-              %td{:align => "right", :nowrap => "nowrap"}
-                %a.btn.btn-info{:href => "account-edit.php"}
-                  %i.glyphicon.glyphicon-edit.icon-white
-                  Edit
-                %a.btn.btn-danger{:href => "account-delete.php"}
-                  %i.glyphicon.glyphicon-trash.icon-white
-                  Delete
+            - accounts.each do |account|
+              %tr
+                %td= account.subdomain
+                %td= account.name
+                %td= account.full_address
+                %td= account.number_of_board_members
+                %td= account.number_of_appartments
+                %td= account.manager
+                %td= number_to_currency(account.monthly_fee)
+                %td{:align => "right", :nowrap => "nowrap"}
+                  = link_to edit_managers_account_path(account), class: 'btn btn-info' do
+                    %i.glyphicon.glyphicon-edit.icon-white
+                    Edit
+                  = link_to managers_account_path(account), class: 'btn btn-danger', :confirm => "Are you sure?",  method: 'DELETE' do
+                    %i.glyphicon.glyphicon-trash.icon-white
+                    Delete

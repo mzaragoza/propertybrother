@@ -1,0 +1,193 @@
+.row
+  .box.col-md-8
+    .box-inner
+      .box-header.well{"data-original-title" => ""}
+        %h2
+          %i.glyphicon.glyphicon-star-empty
+          Account Information
+      .box-content
+        = simple_form_for([:managers, account], html: {class: '', novalidate: true}) do |f|
+          %table.table.table-striped.table-bordered
+            %tr
+              %td
+                %strong Subdomain 
+              %td{:colspan => "3"}
+                = f.input :subdomain, label: false, input_html: { class: 'form-control' }
+            %tr
+              %td
+                %strong Account Name
+              %td{:colspan => "3"}
+                = f.input :name, label: false, input_html: { class: 'form-control' }
+            %tr
+              %td
+                %strong Address
+              %td{:colspan => "3"}
+                = f.input :address, label: false, input_html: { class: 'form-control' }
+                %small Place to meet with board members (Club House, Office, etc)
+            %tr
+              %td
+                %strong City
+              %td
+                = f.input :city, label: false, input_html: { class: 'form-control' }
+              %td
+                %strong State
+              %td
+                = f.input :state, label: false, as: :select, :collection => us_states, include_blank: 'Select One', input_html: { class: 'form-control' }
+            %tr
+              %td
+                %strong Zip Code
+              %td
+                = f.input :zip, label: false, input_html: { class: 'form-control' }
+              %td  
+              %td  
+            %tr
+              %td
+                %strong Number of Apartments
+              %td
+                = f.input :number_of_appartments, label: false, input_html: { class: 'form-control', min: 0 }
+              %td
+                %strong Monthly Fee
+              %td
+                = f.input :monthly_fee, label: false, input_html: { class: 'form-control', min: 0 }
+          %input.btn.btn-info{:name => "Submit", :type => "submit", :value => "Save Changes"}/
+          %a.btn.btn-warning{:href => "account-index.php"} Cancel
+
+  .box.col-md-4
+    .box-inner
+      .box-header.well{"data-original-title" => ""}
+        %h2
+          %i.glyphicon.glyphicon-star-empty
+          Payment History
+        .box-icon
+          %a.btn.btn-minimize.btn-round.btn-default{:href => "#"}
+            %i.glyphicon.glyphicon-chevron-up
+      .box-content
+        %p
+          %a.btn.btn-info{:href => "#"}
+            %i.glyphicon.glyphicon-edit.icon-white
+            Add Payment
+        %table.table.table-striped.table-bordered
+          %thead
+            %th Date
+            %th Type
+            %th Amount
+            %th  
+          %tbody
+            %tr
+              %td 11/01/15
+              %td Direct Deposit
+              %td 2180
+              %td{:nowrap => "nowrap"}
+                %a.btn.btn-success{:href => "#"}
+                  %i.glyphicon.glyphicon-edit.icon-white
+                %a.btn.btn-danger{:href => "#"}
+                  %i.glyphicon.glyphicon-trash.icon-white
+            %tr
+              %td 10/01/15
+              %td Check
+              %td 2180
+              %td
+                %a.btn.btn-success{:href => "#"}
+                  %i.glyphicon.glyphicon-edit.icon-white
+                %a.btn.btn-danger{:href => "#"}
+                  %i.glyphicon.glyphicon-trash.icon-white
+            %tr
+              %td 09/01/15
+              %td Check
+              %td 2180
+              %td
+                %a.btn.btn-success{:href => "#"}
+                  %i.glyphicon.glyphicon-edit.icon-white
+                %a.btn.btn-danger{:href => "#"}
+                  %i.glyphicon.glyphicon-trash.icon-white
+          %tfoot
+            %tr
+              %td{:colspan => "4"}
+                %small last 3 payments
+            %tr
+              %td{:colspan => "4"}
+                %a{:href => "#"} Click here to see all
+  .box.col-md-6
+    .box-inner
+      .box-header.well{"data-original-title" => ""}
+        %h2
+          %i.glyphicon.glyphicon-star-empty
+          Account Managers
+        .box-icon
+          %a.btn.btn-minimize.btn-round.btn-default{:href => "#"}
+            %i.glyphicon.glyphicon-chevron-up
+      .box-content
+        %p
+          %a.btn.btn-info{:href => "#"}
+            %i.glyphicon.glyphicon-edit.icon-white
+            Add Account Manager
+        %table.table.table-striped.table-bordered
+          %thead
+            %th Name
+            %th  
+          %tbody
+            %tr
+              %td
+                %strong *
+                Yaco Zaragoza
+              %td{:nowrap => "nowrap"}
+                %a.btn.btn-danger{:href => "#"}
+                  %i.glyphicon.glyphicon-edit.icon-white
+            %tr
+              %td Yaco Zaragoza
+              %td{:nowrap => "nowrap"}
+                %a.btn.btn-danger{:href => "#"}
+                  %i.glyphicon.glyphicon-edit.icon-white
+            %tr
+              %td Yaco Zaragoza
+              %td{:nowrap => "nowrap"}
+                %a.btn.btn-danger{:href => "#"}
+                  %i.glyphicon.glyphicon-edit.icon-white
+          %tfoot
+            %tr
+              %td{:colspan => "2"}
+                %small Lead manager marked with a *
+  .box.col-md-6
+    .box-inner
+      .box-header.well{"data-original-title" => ""}
+        %h2
+          %i.glyphicon.glyphicon-star-empty
+          Board Members
+        .box-icon
+          %a.btn.btn-minimize.btn-round.btn-default{:href => "#"}
+            %i.glyphicon.glyphicon-chevron-up
+      .box-content
+        %p
+          %a.btn.btn-info{:href => "#"}
+            %i.glyphicon.glyphicon-edit.icon-white
+            Add Board Member
+        %table.table.table-striped.table-bordered
+          %thead
+            %th Name
+            %th Position
+            %th  
+          %tbody
+            %tr
+              %td Yaco Zaragoza
+              %td President
+              %td
+                %a.btn.btn-success{:href => "#"}
+                  %i.glyphicon.glyphicon-edit.icon-white
+                %a.btn.btn-danger{:href => "#"}
+                  %i.glyphicon.glyphicon-trash.icon-white
+            %tr
+              %td Aidaelena Valdes
+              %td Treasurer
+              %td
+                %a.btn.btn-success{:href => "#"}
+                  %i.glyphicon.glyphicon-edit.icon-white
+                %a.btn.btn-danger{:href => "#"}
+                  %i.glyphicon.glyphicon-trash.icon-white
+            %tr
+              %td Moises Zaragoza
+              %td Vice-President
+              %td
+                %a.btn.btn-success{:href => "#"}
+                  %i.glyphicon.glyphicon-edit.icon-white
+                %a.btn.btn-danger{:href => "#"}
+                  %i.glyphicon.glyphicon-trash.icon-white

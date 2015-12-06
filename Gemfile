@@ -2,26 +2,26 @@ source 'https://rubygems.org'
 
 # System
 ruby '2.2.1'
-gem 'rails', '4.2.3'                    # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'rails', '4.2.3'                                  # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 
 #Database
-gem 'pg'  # Use sqlite3 as the database for Active Record
+gem 'pg'                                              # Use postgress as the database for Active Record
 
 # Services
 
 # Engines
 
 # Layout
-# Use Haml format templates
-gem "haml-rails"
-gem 'simple_form'
+gem "haml-rails"                                       # format templates
+gem 'simple_form'                                      # form helpers
 
 # Security
 gem "devise" # For user registration
 gem 'bcrypt-ruby'
+gem 'paper_trail', '~> 4.0.0'                          # Track changes to your models, for auditing or versioning
 
 # Tools
-gem 'decent_exposure'     # A helper for creating declarative interfaces in controllers
+gem 'decent_exposure'                                  # A helper for creating declarative interfaces in controllers
 
 # Images
 

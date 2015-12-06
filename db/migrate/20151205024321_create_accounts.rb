@@ -12,6 +12,5 @@ class CreateAccounts < ActiveRecord::Migration
 
       t.timestamps null: false
     end
-      add_index :accounts, :subdomain, :unique => true
   end
 end

@@ -21,15 +21,6 @@ class Managers::ManagersController < ManagerController
     end
   end
 
-  def destroy
-    manager.deleted_by_id = current_manager.id
-    manager.deleted_by_type = current_manager.class.name
-    manager.deleted_at = DateTime.now
-    manager.save
-    flash[:notice] = t(:manager_was_successfully_deleted)
-    redirect_to(managers_managers_path)
-  end
-
   private
 
   def check_password_submitted
@@ -44,20 +35,21 @@ class Managers::ManagersController < ManagerController
 
   def manager_params
     params.require(:manager).permit(
+      :username,
       :email,
       :password,
       :first_name,
       :last_name,
-      :active,
-      :username,
-      :phone,
+      :home_phone,
+      :cell_phone,
+      :office_phone,
       :extension,
       :address,
       :city,
       :state,
       :zip,
+      :title,
     )
   end
 end
-
 

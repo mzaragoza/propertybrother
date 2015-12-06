@@ -1,5 +1,5 @@
-- content_for :meta_description, 'This is the meta_description'
-- content_for :meta_keywords, 'This is the meta_keywords'
+- content_for :meta_description, 'this is the meta_description'
+- content_for :meta_keywords, 'this is the meta_keywords'
 - content_for :breadcrumb do
   %div
     %ul.breadcrumb
@@ -8,11 +8,10 @@
           %i.glyphicon.glyphicon-chevron-right
           %span Dashboard
       %li
-        = link_to managers_managers_path do 
-          %i.glyphicon.glyphicon-user
-          %span Staff
+        = link_to managers_accounts_path do 
+          %i.glyphicon.glyphicon-home
+          %span Accounts
       %li
         = link_to "New", '#'
 = render 'form'
-
 

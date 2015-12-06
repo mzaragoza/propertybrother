@@ -1,32 +1,142 @@
-= simple_form_for([:managers, manager], html: {class: 'form-horizontal clearfix', novalidate: true}) do |f|
-  .control-group
-    %label.control-label{:for => "email"} Email
-    .controls
-      - if params[:action] == 'new'
-        = f.input :email, label: false
-      - else
-        = manager.email
-  .control-group
-    %label.control-label{:for => "password"} Password
-    .controls
-      = f.input :password, label: false
-  .control-group
-    %label.control-label{:for => "password_confirmation"} Password Confirmation
-    .controls
-      = f.input :password_confirmation, label: false
-  .control-group
-    %label.control-label{:for => "first_name"} First Name
-    .controls
-      = f.input :first_name, label: false
-  .control-group
-    %label.control-label{:for => "last_name"} Last Name
-    .controls
-      = f.input :last_name, label: false
-  .control-group
-    %label.control-label{:for => "active"} Active
-    .controls
-      = f.input :active, label: false
-  .control-group
-    .controls
-      = f.button :submit, class: 'btn btn-primary btn-large pull-right', disable_with: 'Creating...'
-
+.row
+  .box.col-md-8
+    .box-inner
+      .box-header.well{"data-original-title" => ""}
+        %h2
+          %i.glyphicon.glyphicon-star-empty
+          Staff
+      .box-content
+        = simple_form_for([:managers, manager], html: {class: '', novalidate: true}) do |f|
+          %table.table.table-striped.table-bordered
+            %tr
+              %td
+                %strong Username
+              %td
+                = f.input :username, label: false, input_html: { class: 'form-control' }
+              %td
+                %strong Password
+              %td
+                = f.input :password, label: false, input_html: { class: 'form-control' }
+                %small (Leave blank if you don't want to change it)
+            %tr
+              %td
+                %strong First Name
+              %td
+                = f.input :first_name, label: false, input_html: { class: 'form-control' }
+              %td
+                %strong Last Name
+              %td
+                = f.input :last_name, label: false, input_html: { class: 'form-control' }
+            %tr
+              %td
+                %strong Email
+              %td{:colspan => "3"}
+                = f.input :email, label: false, input_html: { class: 'form-control' }
+            %tr
+              %td
+                %strong Home Phone
+              %td
+                = f.input :home_phone, label: false, input_html: { class: 'form-control' }
+              %td
+                %strong Cell
+              %td
+                = f.input :cell_phone, label: false, input_html: { class: 'form-control' }
+            %tr
+              %td
+                %strong Office Phone
+              %td
+                = f.input :office_phone, label: false, input_html: { class: 'form-control' }
+              %td
+                %strong Ext
+              %td
+                = f.input :extension, label: false, input_html: { class: 'form-control' }
+            %tr
+              %td
+                %strong Address
+              %td{:colspan => "3"}
+                = f.input :address, label: false, input_html: { class: 'form-control' }
+            %tr
+              %td
+                %strong City
+              %td
+                = f.input :city, label: false, input_html: { class: 'form-control' }
+              %td
+                %strong State
+              %td
+                = f.input :state, :as => :select, :collection => us_states, include_blank: 'Select One', input_html: { class: 'form-control' }
+            %tr
+              %td
+                %strong Zip Code
+              %td
+                = f.input :zip, label: false, input_html: { class: 'form-control' }
+              %td  
+              %td  
+            %tr
+              %td
+                %strong Title/Position
+              %td{:colspan => "3"}
+                = f.input :title, :as => :select, :collection => Manager.title_list, include_blank: 'Select One', input_html: { class: 'form-control' }
+          %input.btn.btn-info{:name => "Submit", :type => "submit", :value => "Save Changes"}/
+          = link_to 'Cancel', managers_managers_path, class: 'btn btn-warning'
+  .box.col-md-4
+    .box-inner
+      .box-header.well{"data-original-title" => ""}
+        %h2
+          %i.glyphicon.glyphicon-star-empty
+          Sections Staff can Access
+        .box-icon
+          %a.btn.btn-minimize.btn-round.btn-default{:href => "#"}
+            %i.glyphicon.glyphicon-chevron-up
+      .box-content
+        %p
+          %a.btn.btn-info{:href => "staff-edit.php"}
+            %i.glyphicon.glyphicon-edit.icon-white
+            Add Sections
+        %table.table.table-striped.table-bordered
+          %thead
+            %th Name
+            %th  
+          %tbody
+            %tr
+              %td Dashboard
+              %td{:nowrap => "nowrap"}
+                %a.btn.btn-danger{:href => "#"}
+                  %i.glyphicon.glyphicon-trash.icon-white
+            %tr
+              %td Accounts
+              %td{:nowrap => "nowrap"}
+                %a.btn.btn-danger{:href => "#"}
+                  %i.glyphicon.glyphicon-trash.icon-white
+            %tr
+              %td Staff
+              %td{:nowrap => "nowrap"}
+                %a.btn.btn-danger{:href => "#"}
+                  %i.glyphicon.glyphicon-trash.icon-white
+  .box.col-md-4
+    .box-inner
+      .box-header.well{"data-original-title" => ""}
+        %h2
+          %i.glyphicon.glyphicon-star-empty
+          Communities Staff can Access
+        .box-icon
+          %a.btn.btn-minimize.btn-round.btn-default{:href => "#"}
+            %i.glyphicon.glyphicon-chevron-up
+      .box-content
+        %p
+          %a.btn.btn-info{:href => "staff-edit.php"}
+            %i.glyphicon.glyphicon-edit.icon-white
+            Edit Communities
+        %table.table.table-striped.table-bordered
+          %thead
+            %th Code
+            %th Name
+            %th Number of Apt
+          %tbody
+            %tr
+              %td 0001
+              %td Applewood II
+              %td 218
+            %tr
+              %td 0002
+              %td Karanda VII
+              %td 178
