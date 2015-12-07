@@ -1,5 +1,6 @@
 //= require jquery
 //= require jquery_ujs
+//= require jquery-ui
 //= require bower_components/bootstrap/dist/js/bootstrap.min
 //= require js/jquery.cookie
 //= require bower_components/moment/min/moment.min
@@ -19,3 +20,8 @@
 //= require highcharts/highcharts
 //= require highcharts/highcharts-more
 //= require highcharts/highstock
+//
+
+$(function() {
+  $('.datepicker').datepicker();
+});
