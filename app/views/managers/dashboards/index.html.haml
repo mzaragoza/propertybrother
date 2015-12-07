@@ -12,7 +12,7 @@
 
 .row
   .box.col-md-12
-.row
+-#.row
   .col-md-3.col-sm-3.col-xs-6
     %a.well.top-block{"data-toggle" => "tooltip", :href => "#", :title => "Budget"}
       %i.glyphicon.glyphicon-user.green
@@ -39,7 +39,7 @@
       .box-header.well{"data-original-title" => ""}
         %h2
           %i.glyphicon.glyphicon-star-empty
-          Owner Demographics
+          Communities
       .box-content
         = high_chart("chart_owner_demographics", owner_demographics)
   .box.col-md-6
@@ -47,9 +47,9 @@
       .box-header.well{"data-original-title" => ""}
         %h2
           %i.glyphicon.glyphicon-star-empty
-          Applications
+          Accounts and Registrations
       .box-content
-        = high_chart("chart_applications", monthly_applications)
+        = high_chart("chart_applications", accounts_and_residents)
   .box.col-md-6
     .box-inner
       .box-header.well{"data-original-title" => ""}
@@ -65,4 +65,4 @@
           %i.glyphicon.glyphicon-star-empty
           Total Revenue
       .box-content
-        = high_chart("chart_revenue", owner_demographics)
+        = high_chart("chart_revenue", monthly_revenue)

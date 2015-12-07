@@ -1,8 +1,9 @@
 class Managers::DashboardsController < ManagerController
 
   expose(:owner_demographics){ owner_demographics  }
-  expose(:monthly_applications){ monthly_applications  }
+  expose(:accounts_and_residents){ accounts_and_residents  }
   expose(:monthly_expenses){ monthly_expenses }
+  expose(:monthly_revenue){ monthly_revenue }
   expose(:managers){ Manager.where(deleted_by_id: nil).order("id DESC") }
 
   def index
@@ -17,15 +18,14 @@ class Managers::DashboardsController < ManagerController
                   :name=> 'Community Names',
                   colorByPoint: true,
                   :data=> [
-                      ['Owners', rand(1000)],
-                      ['Tenants',rand(100)],
-                      ['Vacant', rand(100)],
+                      ['Applewood II', rand(100)],
+                      ['Karanda VII',rand(100)],
+                      ['Golden Tree', rand(100)],
+                      ['Zaldes Corp', rand(100)],
                   ]
           }
           f.series(series)
-          f.options[:title][:text] = "Owner Demographics as 12/06/2015"
-          #f.legend(:layout=> 'vertical',:style=> {:left=> 'auto', :bottom=> 'auto',:right=> '50px',:top=> '100px'})
-          #f.legend(:align => 'right', :verticalAlign => 'top', :y => 75, :x => -50, :layout => 'vertical',)
+          f.options[:title][:text] = "Communities by Size"
           f.tooltip({pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'})
           f.plot_options(:pie=>{
             :allowPointSelect=>true,
@@ -43,92 +43,185 @@ class Managers::DashboardsController < ManagerController
     end
   end
 
-  def monthly_applications
-    @chart = LazyHighCharts::HighChart.new('graph') do |f|
-      f.title(:text => "Monthly Applications")
-      f.xAxis(:categories => ['2014', '2015', 'Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'])
-      f.series(:name => "Owners", :yAxis => 0,
-               :data => [rand(100...1000),
-                         rand(100.1000),
-                         rand(100.1000),
-                         rand(100.1000),
-                         rand(100.1000),
-                         rand(100.1000),
-                         rand(100.1000),
-                         rand(100.1000),
-                         rand(100.1000),
-                         rand(100.1000),
-                         rand(100.1000),
-                         rand(100.1000),
-                         rand(100.1000),
-                         rand(100.1000),
-                         ])
-      f.series(:name => 'Tenant', :yAxis => 0,
-              :data => [rand(10.100),
-                        rand(10.100),
-                        rand(10.100),
-                        rand(10.100),
-                        rand(10.100),
-                        rand(10.100),
-                        rand(10.100),
-                        rand(10.100),
-                        rand(10.100),
-                        rand(10.100),
-                        rand(10.100),
-                        rand(10.100),
-                        rand(10.100),
-                        rand(10.100),
-                        ])
+  def accounts_and_residents
+    @chart = LazyHighCharts::HighChart.new('column') do |f|
+      f.title(:text => "Owners, Tenants and Vacant Units")
+      f.xAxis(
+        :categories => ['Applewood II', 'Karanda VII', 'Golder Tree', 'Zalders Corp']
+      )
       f.yAxis [
-        {:title => {:text => "Funded Deals", :margin => 70} },
+        {
+          min: 0,
+          stackLabels: {enabled: true},
+        },
+        {:title => {:text => "Residents", :margin => 70} },
       ]
 
-      f.legend(:align => 'right', :verticalAlign => 'top', :y => 75, :x => -50, :layout => 'vertical',)
+      f.series(:name => "Owners", :yAxis => 0, :data => [rand(100)+20,rand(100)+20,rand(100)+20,rand(100)+20 ])
+      f.series(:name => "Renters", :yAxis => 0, :data => [rand(50) + 10,rand(50)+10,rand(50)+10,rand(50)+10 ])
+      f.series(:name => "Vacant", :yAxis => 0, :data => [rand(10) + 10 ,rand(10) + 10 ,rand(10) + 10,rand(10)+10 ])
+
+
       f.chart({:defaultSeriesType=>"column"})
+      f.plot_options(:column=>{
+        stacking: 'normal',
+        dataLabels: {
+          enabled: true,
+          style: { textShadow: '0 0 3px black' },
+          color: 'white',
+        }
+      })
     end
   end
 
   def monthly_expenses
     @chart = LazyHighCharts::HighChart.new('graph') do |f|
       f.title(:text => "Monthly Expenses")
-      f.xAxis(:categories => ['2014', '2015', 'Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'])
-      f.series(:name => "Owners", :yAxis => 0,
+      f.xAxis(:categories => ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'])
+      f.series(:name => "Staff", :yAxis => 0,
                :data => [rand(100...1000),
-                         rand(100.1000),
-                         rand(100.1000),
-                         rand(100.1000),
-                         rand(100.1000),
-                         rand(100.1000),
-                         rand(100.1000),
-                         rand(100.1000),
-                         rand(100.1000),
-                         rand(100.1000),
-                         rand(100.1000),
-                         rand(100.1000),
-                         rand(100.1000),
-                         rand(100.1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
                          ])
-      f.series(:name => 'Tenant', :yAxis => 0,
-              :data => [rand(10.100),
-                        rand(10.100),
-                        rand(10.100),
-                        rand(10.100),
-                        rand(10.100),
-                        rand(10.100),
-                        rand(10.100),
-                        rand(10.100),
-                        rand(10.100),
-                        rand(10.100),
-                        rand(10.100),
-                        rand(10.100),
-                        rand(10.100),
-                        rand(10.100),
-                        ])
+      f.series(:name => "Tech", :yAxis => 0,
+               :data => [rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         ])
+      f.series(:name => "Supplies", :yAxis => 0,
+               :data => [rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         ])
+      f.series(:name => "Misc", :yAxis => 0,
+               :data => [rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         ])
       f.yAxis [
-        {:title => {:text => "Funded Deals", :margin => 70} },
+        {:title => {:text => "Total", :margin => 70} },
       ]
 
-      f.legend(:align => 'right', :verticalAlign => 'top', :y => 75, :x => -50, :layout => 'vertical',)
+      f.chart({:defaultSeriesType=>"column"})
+    end
+  end
+
+  def monthly_revenue
+    @chart = LazyHighCharts::HighChart.new('graph') do |f|
+      f.title(:text => "Monthly Expenses")
+      f.xAxis(:categories => ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'])
+      f.series(:name => "Applewood II", :yAxis => 0,
+               :data => [rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         ])
+      f.series(:name => "Karanda VII", :yAxis => 0,
+               :data => [rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         ])
+      f.series(:name => "Golder Tree", :yAxis => 0,
+               :data => [rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         ])
+      f.series(:name => "Zalders Corp", :yAxis => 0,
+               :data => [rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         rand(100...1000),
+                         ])
+      f.yAxis [
+        {:title => {:text => "Total", :margin => 70} },
+      ]
+
       f.chart({:defaultSeriesType=>"column"})
     end
   end
