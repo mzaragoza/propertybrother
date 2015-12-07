@@ -1,5 +1,5 @@
 .row
-  .box.col-md-8
+  .box{class: "col-md-#{params[:action] == 'edit' ? '8' : '12'}"}
     .box-inner
       .box-header.well{"data-original-title" => ""}
         %h2
@@ -93,87 +93,87 @@
               %tr
                 %td{:colspan => "4"}
                   = link_to 'Click here to see all', managers_account_account_payments_path(account)
-  .box.col-md-6
-    .box-inner
-      .box-header.well{"data-original-title" => ""}
-        %h2
-          %i.glyphicon.glyphicon-star-empty
-          Account Managers
-        .box-icon
-          %a.btn.btn-minimize.btn-round.btn-default{:href => "#"}
-            %i.glyphicon.glyphicon-chevron-up
-      .box-content
-        %p
-          %a.btn.btn-info{:href => "#"}
-            %i.glyphicon.glyphicon-edit.icon-white
-            Add Account Manager
-        %table.table.table-striped.table-bordered
-          %thead
-            %th Name
-            %th  
-          %tbody
-            %tr
-              %td
-                %strong *
-                Yaco Zaragoza
-              %td{:nowrap => "nowrap"}
-                %a.btn.btn-danger{:href => "#"}
-                  %i.glyphicon.glyphicon-edit.icon-white
-            %tr
-              %td Yaco Zaragoza
-              %td{:nowrap => "nowrap"}
-                %a.btn.btn-danger{:href => "#"}
-                  %i.glyphicon.glyphicon-edit.icon-white
-            %tr
-              %td Yaco Zaragoza
-              %td{:nowrap => "nowrap"}
-                %a.btn.btn-danger{:href => "#"}
-                  %i.glyphicon.glyphicon-edit.icon-white
-          %tfoot
-            %tr
-              %td{:colspan => "2"}
-                %small Lead manager marked with a *
-  .box.col-md-6
-    .box-inner
-      .box-header.well{"data-original-title" => ""}
-        %h2
-          %i.glyphicon.glyphicon-star-empty
-          Board Members
-        .box-icon
-          %a.btn.btn-minimize.btn-round.btn-default{:href => "#"}
-            %i.glyphicon.glyphicon-chevron-up
-      .box-content
-        %p
-          %a.btn.btn-info{:href => "#"}
-            %i.glyphicon.glyphicon-edit.icon-white
-            Add Board Member
-        %table.table.table-striped.table-bordered
-          %thead
-            %th Name
-            %th Position
-            %th  
-          %tbody
-            %tr
-              %td Yaco Zaragoza
-              %td President
-              %td
-                %a.btn.btn-success{:href => "#"}
-                  %i.glyphicon.glyphicon-edit.icon-white
-                %a.btn.btn-danger{:href => "#"}
-                  %i.glyphicon.glyphicon-trash.icon-white
-            %tr
-              %td Aidaelena Valdes
-              %td Treasurer
-              %td
-                %a.btn.btn-success{:href => "#"}
-                  %i.glyphicon.glyphicon-edit.icon-white
-                %a.btn.btn-danger{:href => "#"}
-                  %i.glyphicon.glyphicon-trash.icon-white
-            %tr
-              %td Moises Zaragoza
-              %td Vice-President
-              %td
-                %a.btn.btn-success{:href => "#"}
-                  %i.glyphicon.glyphicon-edit.icon-white
-                %a.btn.btn-danger{:href => "#"}
-                  %i.glyphicon.glyphicon-trash.icon-white
+    .box.col-md-6
+      .box-inner
+        .box-header.well{"data-original-title" => ""}
+          %h2
+            %i.glyphicon.glyphicon-star-empty
+            Account Managers
+          .box-icon
+            %a.btn.btn-minimize.btn-round.btn-default{:href => "#"}
+              %i.glyphicon.glyphicon-chevron-up
+        .box-content
+          %p
+            %a.btn.btn-info{:href => "#"}
+              %i.glyphicon.glyphicon-edit.icon-white
+              Add Account Manager
+          %table.table.table-striped.table-bordered
+            %thead
+              %th Name
+              %th  
+            %tbody
+              %tr
+                %td
+                  %strong *
+                  Yaco Zaragoza
+                %td{:nowrap => "nowrap"}
+                  %a.btn.btn-danger{:href => "#"}
+                    %i.glyphicon.glyphicon-edit.icon-white
+              %tr
+                %td Yaco Zaragoza
+                %td{:nowrap => "nowrap"}
+                  %a.btn.btn-danger{:href => "#"}
+                    %i.glyphicon.glyphicon-edit.icon-white
+              %tr
+                %td Yaco Zaragoza
+                %td{:nowrap => "nowrap"}
+                  %a.btn.btn-danger{:href => "#"}
+                    %i.glyphicon.glyphicon-edit.icon-white
+            %tfoot
+              %tr
+                %td{:colspan => "2"}
+                  %small Lead manager marked with a *
+    .box.col-md-6
+      .box-inner
+        .box-header.well{"data-original-title" => ""}
+          %h2
+            %i.glyphicon.glyphicon-star-empty
+            Board Members
+          .box-icon
+            %a.btn.btn-minimize.btn-round.btn-default{:href => "#"}
+              %i.glyphicon.glyphicon-chevron-up
+        .box-content
+          %p
+            %a.btn.btn-info{:href => "#"}
+              %i.glyphicon.glyphicon-edit.icon-white
+              Add Board Member
+          %table.table.table-striped.table-bordered
+            %thead
+              %th Name
+              %th Position
+              %th  
+            %tbody
+              %tr
+                %td Yaco Zaragoza
+                %td President
+                %td
+                  %a.btn.btn-success{:href => "#"}
+                    %i.glyphicon.glyphicon-edit.icon-white
+                  %a.btn.btn-danger{:href => "#"}
+                    %i.glyphicon.glyphicon-trash.icon-white
+              %tr
+                %td Aidaelena Valdes
+                %td Treasurer
+                %td
+                  %a.btn.btn-success{:href => "#"}
+                    %i.glyphicon.glyphicon-edit.icon-white
+                  %a.btn.btn-danger{:href => "#"}
+                    %i.glyphicon.glyphicon-trash.icon-white
+              %tr
+                %td Moises Zaragoza
+                %td Vice-President
+                %td
+                  %a.btn.btn-success{:href => "#"}
+                    %i.glyphicon.glyphicon-edit.icon-white
+                  %a.btn.btn-danger{:href => "#"}
+                    %i.glyphicon.glyphicon-trash.icon-white
