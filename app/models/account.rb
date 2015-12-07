@@ -1,6 +1,8 @@
 class Account < ActiveRecord::Base
   has_paper_trail
 
+  has_many :account_payments
+
   validates :subdomain, presence: true, uniqueness: true, case_sensitive: false
   before_validation { |account| account.subdomain = subdomain.downcase.gsub(/[^0-9a-z\+]/, "").gsub(' ', '').to_s}
 

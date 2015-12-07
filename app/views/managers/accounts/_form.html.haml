@@ -52,61 +52,47 @@
           %input.btn.btn-info{:name => "Submit", :type => "submit", :value => "Save Changes"}/
           %a.btn.btn-warning{:href => "account-index.php"} Cancel
 
-  .box.col-md-4
-    .box-inner
-      .box-header.well{"data-original-title" => ""}
-        %h2
-          %i.glyphicon.glyphicon-star-empty
-          Payment History
-        .box-icon
-          %a.btn.btn-minimize.btn-round.btn-default{:href => "#"}
-            %i.glyphicon.glyphicon-chevron-up
-      .box-content
-        %p
-          %a.btn.btn-info{:href => "#"}
-            %i.glyphicon.glyphicon-edit.icon-white
-            Add Payment
-        %table.table.table-striped.table-bordered
-          %thead
-            %th Date
-            %th Type
-            %th Amount
-            %th  
-          %tbody
-            %tr
-              %td 11/01/15
-              %td Direct Deposit
-              %td 2180
-              %td{:nowrap => "nowrap"}
-                %a.btn.btn-success{:href => "#"}
-                  %i.glyphicon.glyphicon-edit.icon-white
-                %a.btn.btn-danger{:href => "#"}
-                  %i.glyphicon.glyphicon-trash.icon-white
-            %tr
-              %td 10/01/15
-              %td Check
-              %td 2180
-              %td
-                %a.btn.btn-success{:href => "#"}
-                  %i.glyphicon.glyphicon-edit.icon-white
-                %a.btn.btn-danger{:href => "#"}
-                  %i.glyphicon.glyphicon-trash.icon-white
-            %tr
-              %td 09/01/15
-              %td Check
-              %td 2180
-              %td
-                %a.btn.btn-success{:href => "#"}
-                  %i.glyphicon.glyphicon-edit.icon-white
-                %a.btn.btn-danger{:href => "#"}
-                  %i.glyphicon.glyphicon-trash.icon-white
-          %tfoot
-            %tr
-              %td{:colspan => "4"}
-                %small last 3 payments
-            %tr
-              %td{:colspan => "4"}
-                %a{:href => "#"} Click here to see all
+  - if params[:action] == 'edit'
+    .box.col-md-4
+      .box-inner
+        .box-header.well{"data-original-title" => ""}
+          %h2
+            %i.glyphicon.glyphicon-star-empty
+            Payment History
+          .box-icon
+            %a.btn.btn-minimize.btn-round.btn-default{:href => "#"}
+              %i.glyphicon.glyphicon-chevron-up
+        .box-content
+          %p
+            = link_to new_managers_account_account_payment_path(account), class: 'btn btn-info' do 
+              %i.glyphicon.glyphicon-edit.icon-white
+              Add Payment
+          %table.table.table-striped.table-bordered
+            %thead
+              %th Date
+              %th Type
+              %th Amount
+              %th  
+            %tbody
+              - payments.limit(5).each do |payment|
+                %tr
+                  %td= payment.payment_date.strftime('%D')
+                  %td= payment.payment_type
+                  %td= number_to_currency(payment.amount)
+                  %td{:align => "right", :nowrap => "nowrap"}
+                    = link_to edit_managers_account_account_payment_path(account, payment), class: 'btn btn-info' do
+                      %i.glyphicon.glyphicon-edit.icon-white
+                      Edit
+                    = link_to managers_account_account_payment_path(account, payment), class: 'btn btn-danger', :confirm => "Are you sure?",  method: 'DELETE' do
+                      %i.glyphicon.glyphicon-trash.icon-white
+                      Delete
+            %tfoot
+              %tr
+                %td{:colspan => "4"}
+                  %small= payments.limit(5).count.to_s + ' Of ' + payments.count.to_s
+              %tr
+                %td{:colspan => "4"}
+                  = link_to 'Click here to see all', managers_account_account_payments_path(account)
   .box.col-md-6
     .box-inner
       .box-header.well{"data-original-title" => ""}

@@ -1,0 +1,62 @@
+- content_for :meta_description, 'this is the meta_description'
+- content_for :meta_keywords, 'this is the meta_keywords'
+- content_for :breadcrumb do
+  %div
+    %ul.breadcrumb
+      %li
+        = link_to managers_root_path do 
+          %i.glyphicon.glyphicon-chevron-right
+          %span Dashboard
+      %li
+        = link_to managers_accounts_path do 
+          %i.glyphicon.glyphicon-home
+          %span Accounts
+      %li
+        = link_to edit_managers_account_path(account) do 
+          %i.glyphicon.glyphicon-home
+          %span= account.name
+      %li
+        = link_to '#' do 
+          %i.glyphicon.glyphicon-usd
+          %span Payments
+
+.row
+  .box.col-md-12
+    %p
+      = link_to new_managers_account_account_payment_path(account), class: 'btn btn-info' do
+        %i.glyphicon.glyphicon-edit.icon-white
+        Add Paymetn
+    %p
+      %a.btn.btn-setting.btn-success{:href => "#"}
+        %i.glyphicon.glyphicon-zoom-in
+        Add Filter
+      %a.btn.btn-setting.btn-success{:href => "#"}
+        %i.glyphicon.glyphicon-minus-sign
+        Clear Filters
+.row
+  .box.col-md-12
+    .box-inner
+      .box-header.well{"data-original-title" => ""}
+        %h2
+          %i.glyphicon.glyphicon-star-empty
+          Accounts
+      .box-content
+        %table.table.table-striped.table-bordered.bootstrap-datatable.datatable
+          %thead
+            %th Date
+            %th Type
+            %th Amount
+            %th  
+          %tbody
+            - account_payments.each do |payment|
+              %tr
+                %td= payment.payment_date.strftime('%D')
+                %td= payment.payment_type
+                %td= number_to_currency(payment.amount)
+                %td{:align => "right", :nowrap => "nowrap"}
+                  = link_to edit_managers_account_account_payment_path(account, payment), class: 'btn btn-info' do
+                    %i.glyphicon.glyphicon-edit.icon-white
+                    Edit
+                  = link_to managers_account_account_payment_path(account, payment), class: 'btn btn-danger', :confirm => "Are you sure?",  method: 'DELETE' do
+                    %i.glyphicon.glyphicon-trash.icon-white
+                    Delete

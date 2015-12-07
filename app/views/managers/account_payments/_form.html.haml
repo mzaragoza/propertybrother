@@ -1,0 +1,34 @@
+.row
+  .box.col-md-12
+    .box-inner
+      .box-header.well{"data-original-title" => ""}
+        %h2
+          %i.glyphicon.glyphicon-star-empty
+          = params[:action] == 'new'? 'Add' : 'Edit'
+          Account Payment
+      .box-content
+        = simple_form_for([:managers, account, account_payment], html: {class: '', novalidate: true}) do |f|
+          %table.table.table-striped.table-bordered
+            %tr
+              %td
+                %strong Account
+              %td
+                = account.name
+            %tr
+              %td
+                %strong Type
+              %td
+                = f.input :payment_type, label: false, :as => :select, :collection => AccountPayment.payment_type_list, include_blank: 'Select One', input_html: { class: 'form-control' }
+            %tr
+              %td
+                %strong Date
+              %td
+                = f.input :payment_date, label: false, input_html: { class: 'form-control' }
+            %tr
+              %td
+                %strong Amount
+              %td
+                = f.input :amount, label: false, input_html: { class: 'form-control' }
+          %input.btn.btn-info{:name => "Submit", :type => "submit", :value => "Save Changes"}/
+          %a.btn.btn-warning{:href => "account-index.php"} Cancel
+

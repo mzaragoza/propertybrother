@@ -1,6 +1,7 @@
 class Managers::AccountsController < ManagerController
   expose(:accounts){ Account.order("id DESC") }
   expose(:account, attributes: :account_params)
+  expose(:payments){ account.account_payments }
 
   def create
     if account.save

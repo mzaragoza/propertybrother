@@ -75,7 +75,7 @@
               %td
                 %strong Title/Position
               %td{:colspan => "3"}
-                = f.input :title, :as => :select, :collection => Manager.title_list, include_blank: 'Select One', input_html: { class: 'form-control' }
+                = f.input :title, label: false, :as => :select, :collection => Manager.title_list, include_blank: 'Select One', input_html: { class: 'form-control' }
           %input.btn.btn-info{:name => "Submit", :type => "submit", :value => "Save Changes"}/
           = link_to 'Cancel', managers_managers_path, class: 'btn btn-warning'
   .box.col-md-4

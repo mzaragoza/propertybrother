@@ -17,7 +17,9 @@ Rails.application.routes.draw do
 
   authenticate :manager do
     namespace :managers do
-      resources :accounts
+      resources :accounts do
+        resources :account_payments
+      end
       resources :managers
       resources :profile, :only => [:edit, :update]
       root :to => 'dashboards#index'
