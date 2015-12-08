@@ -1,6 +1,8 @@
 class Manager < ActiveRecord::Base
   has_paper_trail
 
+  has_many :account_managers
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

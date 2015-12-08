@@ -1,0 +1,46 @@
+.row
+  .box.col-md-12
+    %p
+      = link_to new_managers_manager_path, class: 'btn btn-info' do
+        %i.glyphicon.glyphicon-edit.icon-white
+        New Staff
+.row
+  .box.col-md-12
+    .box-inner
+      .box-header.well{"data-original-title" => ""}
+        %h2
+          %i.glyphicon.glyphicon-star-empty
+          = params[:action] == 'new'? 'Add' : 'Edit'
+          Account Managers
+      .box-content
+        %p
+          Select staff members that will have access to manage the information for:
+          %strong.text-success= account.name
+        = simple_form_for([:managers, account, account_manager], html: {class: '', novalidate: true}) do |f|
+          %table.table.table-striped.table-bordered
+            %thead
+              %th Access
+              %th Lead
+              %th Staff Name
+              %th Access
+              %th Lead
+              %th Staff Name
+            %tbody
+              - Manager.all.order(:first_name).each_with_index do |manager, index|
+                -if (index % 2) == 0
+                  %tr
+                %td
+                  - if manager.account_managers.find_by(manager_id: manager.id)
+                    = check_box_tag("manager_id[]", manager.id, {checked: manager.account_managers.find_by(manager_id: manager.id) ? true : false})
+                  - else
+                    = check_box_tag("manager_id[]", manager.id )
+                %td
+                  - if manager.account_managers.find_by(manager_id: manager.id).try(:lead)
+                    %input{:name => "lead", :type => "radio", :value => manager.id, checked: 'checked'}/
+                  - else
+                    %input{:name => "lead", :type => "radio", :value => manager.id}/
+                %td
+                  %strong{class: "#{'text-success' if manager.account_managers.find_by(manager_id: manager.id).try(:lead) }" }= manager.name
+          %p
+            %input.btn.btn-info{:name => "Submit", :type => "submit", :value => "Save"}/
+            = link_to 'Cancel', edit_managers_account_path(account), class: 'btn btn-warning'

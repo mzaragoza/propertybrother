@@ -104,34 +104,21 @@
               %i.glyphicon.glyphicon-chevron-up
         .box-content
           %p
-            %a.btn.btn-info{:href => "#"}
+            = link_to new_managers_account_account_manager_path(account), class: 'btn btn-info' do
               %i.glyphicon.glyphicon-edit.icon-white
-              Add Account Manager
+              Manage Account Manager
           %table.table.table-striped.table-bordered
             %thead
               %th Name
-              %th  
             %tbody
-              %tr
-                %td
-                  %strong *
-                  Yaco Zaragoza
-                %td{:nowrap => "nowrap"}
-                  %a.btn.btn-danger{:href => "#"}
-                    %i.glyphicon.glyphicon-edit.icon-white
-              %tr
-                %td Yaco Zaragoza
-                %td{:nowrap => "nowrap"}
-                  %a.btn.btn-danger{:href => "#"}
-                    %i.glyphicon.glyphicon-edit.icon-white
-              %tr
-                %td Yaco Zaragoza
-                %td{:nowrap => "nowrap"}
-                  %a.btn.btn-danger{:href => "#"}
-                    %i.glyphicon.glyphicon-edit.icon-white
+              - account_managers.each do |account_manager|
+                %tr
+                  %td
+                    %strong= '*' if account_manager.lead
+                    = account_manager.manager.name
             %tfoot
               %tr
-                %td{:colspan => "2"}
+                %td
                   %small Lead manager marked with a *
     .box.col-md-6
       .box-inner

@@ -1,0 +1,24 @@
+- content_for :meta_description, 'this is the meta_description'
+- content_for :meta_keywords, 'this is the meta_keywords'
+- content_for :breadcrumb do
+  %div
+    %ul.breadcrumb
+      %li
+        = link_to managers_root_path do 
+          %i.glyphicon.glyphicon-chevron-right
+          %span Dashboard
+      %li
+        = link_to managers_accounts_path do 
+          %i.glyphicon.glyphicon-home
+          %span Accounts
+      %li
+        = link_to edit_managers_account_path(account) do 
+          %i.glyphicon.glyphicon-home
+          %span= account.name
+      %li
+        = link_to managers_account_account_managers_path(account) do 
+          %i.glyphicon.glyphicon-user
+          %span Managers
+      %li
+        = link_to "New", '#'
+= render 'form'
