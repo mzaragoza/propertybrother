@@ -25,12 +25,11 @@ gem 'decent_exposure'                                  # A helper for creating d
 gem 'lazy_high_charts'                                 # Charts
 
 # Images
+gem "carrierwave"                                       # For file uploads
 
 # Payment
 gem 'stripe'
 
-# For file uploads
-gem "carrierwave"
 #
 # Use SCSS for stylesheets
 gem 'sass-rails', '~> 5.0'

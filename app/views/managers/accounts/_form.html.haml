@@ -54,7 +54,7 @@
 
   - if params[:action] == 'edit'
     .box.col-md-4
-      .box-inner
+      .box-inner{style: 'min-height: 476px;'}
         .box-header.well{"data-original-title" => ""}
           %h2
             %i.glyphicon.glyphicon-star-empty
@@ -80,12 +80,10 @@
                   %td= payment.payment_type
                   %td= number_to_currency(payment.amount)
                   %td{:align => "right", :nowrap => "nowrap"}
-                    = link_to edit_managers_account_account_payment_path(account, payment), class: 'btn btn-info' do
+                    = link_to edit_managers_account_account_payment_path(account, payment), class: 'btn btn-success' do
                       %i.glyphicon.glyphicon-edit.icon-white
-                      Edit
                     = link_to managers_account_account_payment_path(account, payment), class: 'btn btn-danger', :confirm => "Are you sure?",  method: 'DELETE' do
                       %i.glyphicon.glyphicon-trash.icon-white
-                      Delete
             %tfoot
               %tr
                 %td{:colspan => "4"}
@@ -93,7 +91,7 @@
               %tr
                 %td{:colspan => "4"}
                   = link_to 'Click here to see all', managers_account_account_payments_path(account)
-    .box.col-md-6
+    .box.col-md-4
       .box-inner
         .box-header.well{"data-original-title" => ""}
           %h2
@@ -120,47 +118,80 @@
               %tr
                 %td
                   %small Lead manager marked with a *
-    .box.col-md-6
-      .box-inner
-        .box-header.well{"data-original-title" => ""}
-          %h2
-            %i.glyphicon.glyphicon-star-empty
-            Board Members
-          .box-icon
-            %a.btn.btn-minimize.btn-round.btn-default{:href => "#"}
-              %i.glyphicon.glyphicon-chevron-up
-        .box-content
-          %p
-            %a.btn.btn-info{:href => "#"}
-              %i.glyphicon.glyphicon-edit.icon-white
-              Add Board Member
-          %table.table.table-striped.table-bordered
-            %thead
-              %th Name
-              %th Position
-              %th  
-            %tbody
-              %tr
-                %td Yaco Zaragoza
-                %td President
-                %td
-                  %a.btn.btn-success{:href => "#"}
-                    %i.glyphicon.glyphicon-edit.icon-white
-                  %a.btn.btn-danger{:href => "#"}
-                    %i.glyphicon.glyphicon-trash.icon-white
-              %tr
-                %td Aidaelena Valdes
-                %td Treasurer
-                %td
-                  %a.btn.btn-success{:href => "#"}
-                    %i.glyphicon.glyphicon-edit.icon-white
-                  %a.btn.btn-danger{:href => "#"}
-                    %i.glyphicon.glyphicon-trash.icon-white
-              %tr
-                %td Moises Zaragoza
-                %td Vice-President
-                %td
-                  %a.btn.btn-success{:href => "#"}
-                    %i.glyphicon.glyphicon-edit.icon-white
-                  %a.btn.btn-danger{:href => "#"}
-                    %i.glyphicon.glyphicon-trash.icon-white
+  .box.col-md-4
+    .box-inner
+      .box-header.well{"data-original-title" => ""}
+        %h2
+          %i.glyphicon.glyphicon-star-empty
+          Documents
+        .box-icon
+          %a.btn.btn-minimize.btn-round.btn-default{:href => "#"}
+            %i.glyphicon.glyphicon-chevron-up
+      .box-content
+        %p
+          %a.btn.btn-info{:href => "account-document-edit.php"}
+            %i.glyphicon.glyphicon-edit.icon-white
+            Upload Documents
+        %table.table.table-striped.table-bordered
+          %thead
+            %th Name
+            %th Type
+            %th  
+          %tbody
+            %tr
+              %td Sign Up
+              %td Contract
+              %td
+                %a.btn.btn-danger{:href => "#"}
+                  %i.glyphicon.glyphicon-trash.icon-white
+          %tfoot
+            %tr
+              %td{:colspan => "4"}
+                %small last 4 documents
+            %tr
+              %td{:colspan => "4", :style => "text-align:center;"}
+                %a{:href => "#"} Click here to see all
+  .box.col-md-4
+    .box-inner
+      .box-header.well{"data-original-title" => ""}
+        %h2
+          %i.glyphicon.glyphicon-star-empty
+          Board Members
+        .box-icon
+          %a.btn.btn-minimize.btn-round.btn-default{:href => "#"}
+            %i.glyphicon.glyphicon-chevron-up
+      .box-content
+        %p
+          %a.btn.btn-info{:href => "#"}
+            %i.glyphicon.glyphicon-edit.icon-white
+            Add Board Member
+        %table.table.table-striped.table-bordered
+          %thead
+            %th Name
+            %th Position
+            %th  
+          %tbody
+            %tr
+              %td Yaco Zaragoza
+              %td President
+              %td
+                %a.btn.btn-success{:href => "#"}
+                  %i.glyphicon.glyphicon-edit.icon-white
+                %a.btn.btn-danger{:href => "#"}
+                  %i.glyphicon.glyphicon-trash.icon-white
+            %tr
+              %td Aidaelena Valdes
+              %td Treasurer
+              %td
+                %a.btn.btn-success{:href => "#"}
+                  %i.glyphicon.glyphicon-edit.icon-white
+                %a.btn.btn-danger{:href => "#"}
+                  %i.glyphicon.glyphicon-trash.icon-white
+            %tr
+              %td Moises Zaragoza
+              %td Vice-President
+              %td
+                %a.btn.btn-success{:href => "#"}
+                  %i.glyphicon.glyphicon-edit.icon-white
+                %a.btn.btn-danger{:href => "#"}
+                  %i.glyphicon.glyphicon-trash.icon-white
