@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151207231751) do
+ActiveRecord::Schema.define(version: 20151210003726) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "account_documents", force: :cascade do |t|
+    t.string   "account_id"
+    t.string   "name"
+    t.string   "document_type"
+    t.string   "file"
+    t.text     "description"
+    t.datetime "created_at",    null: false
+    t.datetime "updated_at",    null: false
+  end
 
   create_table "account_managers", force: :cascade do |t|
     t.integer  "account_id"

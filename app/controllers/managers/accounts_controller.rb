@@ -3,6 +3,7 @@ class Managers::AccountsController < ManagerController
   expose(:account, attributes: :account_params)
   expose(:payments){ account.account_payments }
   expose(:account_managers){ account.account_managers }
+  expose(:account_documents){ account.account_documents }
 
   def create
     if account.save

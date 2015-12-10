@@ -82,7 +82,7 @@
                   %td{:align => "right", :nowrap => "nowrap"}
                     = link_to edit_managers_account_account_payment_path(account, payment), class: 'btn btn-success' do
                       %i.glyphicon.glyphicon-edit.icon-white
-                    = link_to managers_account_account_payment_path(account, payment), class: 'btn btn-danger', :confirm => "Are you sure?",  method: 'DELETE' do
+                    = link_to managers_account_account_payment_path(account, payment), class: 'btn btn-danger', :confirm => "Are you sure?",  method: :delete do
                       %i.glyphicon.glyphicon-trash.icon-white
             %tfoot
               %tr
@@ -129,7 +129,7 @@
             %i.glyphicon.glyphicon-chevron-up
       .box-content
         %p
-          %a.btn.btn-info{:href => "account-document-edit.php"}
+          = link_to new_managers_account_account_document_path(account), class: 'btn btn-info' do
             %i.glyphicon.glyphicon-edit.icon-white
             Upload Documents
         %table.table.table-striped.table-bordered
@@ -138,19 +138,20 @@
             %th Type
             %th  
           %tbody
-            %tr
-              %td Sign Up
-              %td Contract
-              %td
-                %a.btn.btn-danger{:href => "#"}
-                  %i.glyphicon.glyphicon-trash.icon-white
+            - account_documents.each do |document|
+              %tr
+                %td= link_to document.name, document.file_url, target: '_balnk'
+                %td= document.document_type
+                %td
+                  = link_to managers_account_account_document_path(account, document), :method => :delete, :confirm => "Are you sure?", class: 'btn btn-danger' do
+                    %i.glyphicon.glyphicon-trash.icon-white
           %tfoot
             %tr
               %td{:colspan => "4"}
-                %small last 4 documents
+                %small last #{account_documents.limit(4).count} of #{account_documents.count} documents
             %tr
               %td{:colspan => "4", :style => "text-align:center;"}
-                %a{:href => "#"} Click here to see all
+                = link_to 'Click here to see all', managers_account_account_documents_path(account)
   .box.col-md-4
     .box-inner
       .box-header.well{"data-original-title" => ""}

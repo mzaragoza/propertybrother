@@ -3,6 +3,7 @@ class Account < ActiveRecord::Base
 
   has_many :account_payments
   has_many :account_managers
+  has_many :account_documents
 
   validates :subdomain, presence: true, uniqueness: true, case_sensitive: false
   before_validation { |account| account.subdomain = subdomain.downcase.gsub(/[^0-9a-z\+]/, "").gsub(' ', '').to_s}

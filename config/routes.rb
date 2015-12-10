@@ -18,6 +18,7 @@ Rails.application.routes.draw do
   authenticate :manager do
     namespace :managers do
       resources :accounts do
+        resources :account_documents
         resources :account_managers
         resources :account_payments
       end

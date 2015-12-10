@@ -1,0 +1,40 @@
+.row
+  .box.col-md-12
+    .box-inner
+      .box-header.well{"data-original-title" => ""}
+        %h2
+          %i.glyphicon.glyphicon-star-empty
+          = params[:action] == 'new'? 'Add' : 'Edit'
+          Account Document
+      .box-content
+        = simple_form_for([:managers, account, account_document], html: {class: '', novalidate: true}) do |f|
+          %table.table.table-striped.table-bordered
+            %tr
+              %td
+                %strong Account
+              %td
+                = account.name
+            %tr
+              %td
+                %strong Name
+              %td
+                = f.input :name, label: false, include_blank: 'Select One', input_html: { class: 'form-control' }
+            %tr
+              %td
+                %strong Description
+              %td
+                = f.input :description, label: false, include_blank: 'Select One', input_html: { class: 'form-control' }
+            %tr
+              %td
+                %strong Type
+              %td
+                = f.input :document_type, label: false, :as => :select, :collection => AccountDocument.type_list, include_blank: 'Select One', input_html: { class: 'form-control' }
+            %tr
+              %td
+                %strong File
+              %td
+                = f.input :file, label: false, input_html: { class: 'form-control' }
+          %input.btn.btn-info{:name => "Submit", :type => "submit", :value => "Save Changes"}/
+          = link_to 'Cancel', edit_managers_account_path(account), class: 'btn btn-warning'
+
+
