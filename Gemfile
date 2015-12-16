@@ -2,30 +2,32 @@ source 'https://rubygems.org'
 
 # System
 ruby '2.2.1'
-gem 'rails', '4.2.3'                                  # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+#gem 'rails', '4.2.3'                                                         # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
+gem 'rails', '4.2.1', github: 'influitive/rails', tag: 'v4.2.1.memfix'
 
 #Database
-gem 'pg'                                              # Use postgress as the database for Active Record
+gem 'pg'                                                                     # Use postgress as the database for Active Record
 
 # Services
 
 # Engines
 
 # Layout
-gem "haml-rails"                                       # format templates
-gem 'simple_form'                                      # form helpers
+gem "haml-rails"                                                              # format templates
+gem 'simple_form'                                                             # form helpers
 
 # Security
 gem "devise" # For user registration
-gem 'bcrypt-ruby'
-gem 'paper_trail', '~> 4.0.0'                          # Track changes to your models, for auditing or versioning
+gem 'bcrypt-ruby'                                                             # easily store a secure hash
+gem 'paper_trail', '~> 4.0.0'                                                 # Track changes to your models, for auditing or versioning
 
 # Tools
-gem 'decent_exposure'                                  # A helper for creating declarative interfaces in controllers
-gem 'lazy_high_charts'                                 # Charts
+gem 'apartment'                                                               #  Database multi-tenancy for Rack (and Rails) applications
+gem 'decent_exposure'                                                         # A helper for creating declarative interfaces in controllers
+gem 'lazy_high_charts'                                                        # Charts
 
 # Images
-gem "carrierwave"                                       # For file uploads
+gem "carrierwave"                                                             # For file uploads
 
 # Payment
 gem 'stripe'

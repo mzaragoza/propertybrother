@@ -7,6 +7,7 @@ class Account < ActiveRecord::Base
 
   validates :subdomain, presence: true, uniqueness: true, case_sensitive: false
   before_validation { |account| account.subdomain = subdomain.downcase.gsub(/[^0-9a-z\+]/, "").gsub(' ', '').to_s}
+  after_create :create_apartment
 
   def full_address
     (address.to_s + ' ' + city.to_s + ' ' + state + ' ' + zip.to_s).titleize
@@ -19,5 +20,11 @@ class Account < ActiveRecord::Base
   def manager
     'John Doe'
   end
+
+  private
+  def create_apartment
+    Apartment::Tenant.create(subdomain)
+  end
+
 end
 
