@@ -147,7 +147,7 @@ GEM
       railties (>= 3.0.0)
     fattr (2.2.2)
     ffaker (2.1.0)
-    ffi (1.9.10)
+    ffi (1.11.1)
     fission (0.5.0)
       CFPropertyList (~> 2.2)
     flay (2.6.1)
